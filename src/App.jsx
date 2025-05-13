@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, Suspense } from 'react'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import emailjs from '@emailjs/browser';
-import Intro2D from './components/Intro2D'
+
 import ProjectCard from './components/ProjectCard'
 import ParticleBackground from './components/ParticleBackground'
 import MouseFollower from './components/MouseFollower'
@@ -715,21 +715,11 @@ de las aplicaciones internas.</li>
 }
 
 function App() {
-  const [introCompleted, setIntroCompleted] = useState(false)
-
-  const handleIntroComplete = () => {
-    setIntroCompleted(true)
-  }
-
   return (
     <AnimatePresence mode="wait">
-      {!introCompleted ? (
-        <Intro2D onIntroComplete={handleIntroComplete} />
-      ) : (
-        <Suspense fallback={<div className="loading">Cargando...</div>}>
-          <MainPortfolio />
-        </Suspense>
-      )}
+      <Suspense fallback={<div className="loading">Cargando...</div>}>
+        <MainPortfolio />
+      </Suspense>
     </AnimatePresence>
   )
 }
