@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, Suspense } from 'react'
-import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import emailjs from '@emailjs/browser';
 
@@ -11,20 +11,18 @@ import { projects, skillsData } from './data/projectsData'
 import './App.css'
 import profileImage from './assets/IMG/uy.jpg';
 
-const ScrollIndicator = ({ sections, activeSection, onClickIndicator }) => {
-  return (
-    <div className="scroll-indicator-container">
-      {sections.map((section, index) => (
-        <div 
-          key={section}
-          className={`scroll-indicator ${activeSection === section ? 'active' : ''}`}
-          onClick={() => onClickIndicator(section)}
-          aria-label={`Ir a sección ${section}`}
-        />
-      ))}
-    </div>
-  );
-};
+const ScrollIndicator = ({ sections, activeSection, onClickIndicator }) => (
+  <div className="scroll-indicator-container">
+    {sections.map((section) => (
+      <div 
+        key={section}
+        className={`scroll-indicator ${activeSection === section ? 'active' : ''}`}
+        onClick={() => onClickIndicator(section)}
+        aria-label={`Ir a sección ${section}`}
+      />
+    ))}
+  </div>
+);
 
 const AnimatedTitle = ({ children, delay = 0 }) => (
   <span className="animated-title">
@@ -101,15 +99,12 @@ function MainPortfolio() {
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
-    if (section) {
-      const portfolio = portfolioRef.current;
-      if (portfolio) {
-        const sectionTop = section.offsetTop;
-        portfolio.scrollTo({
-          top: sectionTop,
-          behavior: 'smooth'
-        });
-      }
+    if (section && portfolioRef.current) {
+      const sectionTop = section.offsetTop;
+      portfolioRef.current.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -119,8 +114,6 @@ function MainPortfolio() {
 
   const currentYear = new Date().getFullYear();
   
-  const profileImageUrl = profileImage; 
-
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const toggleProjectsView = () => {
@@ -194,7 +187,6 @@ function MainPortfolio() {
     
     emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
       .then((result) => {
-        console.log('Email sent successfully!', result.text);
         setIsSubmitting(false);
         setSubmitStatus('success');
 
@@ -209,7 +201,6 @@ function MainPortfolio() {
         }, 5000);
       })
       .catch((error) => {
-        console.error('Failed to send email:', error.text);
         setIsSubmitting(false);
         setSubmitStatus('error');
         

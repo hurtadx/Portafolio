@@ -8,7 +8,6 @@ const ParticleBackground = () => {
   const previousTimeRef = useRef();
 
   useEffect(() => {
-    
     const particleCount = 20;
     const shapeCount = 5;
     const container = containerRef.current;
@@ -16,7 +15,6 @@ const ParticleBackground = () => {
     if (!container) return;
     
     const { width, height } = container.getBoundingClientRect();
-    
     
     particlesRef.current = Array.from({ length: particleCount }).map(() => ({
       x: Math.random() * width,
@@ -26,7 +24,6 @@ const ParticleBackground = () => {
       speedY: Math.random() * 1 - 0.5,
       opacity: Math.random() * 0.5 + 0.1
     }));
-    
     
     shapesRef.current = Array.from({ length: shapeCount }).map(() => {
       const types = ['rectangle', 'circle', 'donut'];
@@ -47,7 +44,6 @@ const ParticleBackground = () => {
         opacity: Math.random() * 0.15 + 0.05
       };
     });
-    
     
     particlesRef.current.forEach(particle => {
       const element = document.createElement('div');
@@ -74,39 +70,32 @@ const ParticleBackground = () => {
       container.appendChild(element);
     });
     
-    
     const animate = time => {
       if (previousTimeRef.current != undefined) {
         const deltaTime = time - previousTimeRef.current;
-        
         
         particlesRef.current.forEach(particle => {
           particle.x += particle.speedX;
           particle.y += particle.speedY;
           
-          
           if (particle.x < 0 || particle.x > width) particle.speedX *= -1;
           if (particle.y < 0 || particle.y > height) particle.speedY *= -1;
-          
           
           if (particle.element) {
             particle.element.style.transform = `translate(${particle.x}px, ${particle.y}px)`;
           }
         });
         
-        
         shapesRef.current.forEach(shape => {
           shape.x += shape.speedX * deltaTime;
           shape.y += shape.speedY * deltaTime;
           shape.rotation += shape.rotationSpeed * deltaTime;
-          
           
           const margin = shape.size / 2;
           if (shape.x < -margin) shape.x = width + margin;
           if (shape.x > width + margin) shape.x = -margin;
           if (shape.y < -margin) shape.y = height + margin;
           if (shape.y > height + margin) shape.y = -margin;
-          
           
           if (shape.element) {
             shape.element.style.transform = `translate(${shape.x}px, ${shape.y}px) rotate(${shape.rotation}deg)`;

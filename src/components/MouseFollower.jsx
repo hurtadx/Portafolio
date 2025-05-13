@@ -19,7 +19,8 @@ const MouseFollower = () => {
     };
     
     const onMouseOver = (e) => {
-      if (
+      // Check if target is an interactive element
+      const isInteractive = 
         e.target.tagName === 'BUTTON' || 
         e.target.tagName === 'A' || 
         e.target.classList.contains('scroll-indicator') ||
@@ -28,17 +29,18 @@ const MouseFollower = () => {
         e.target.classList.contains('social-link') ||
         e.target.parentElement?.classList.contains('nav-links') ||
         e.target.parentElement?.classList.contains('social-link') ||
-        e.target.parentElement?.classList.contains('tech-tag')
-      ) {
+        e.target.parentElement?.classList.contains('tech-tag');
+        
+      if (isInteractive) {
         setIsHovering(true);
       }
     };
     
-    const onMouseOut = (e) => {
+    const onMouseOut = () => {
       setIsHovering(false);
     };
     
-    // Use animation frame for smooth movement
+    // Setup animation loop
     const animateFollower = () => {
       const speed = isHovering ? 0.15 : 0.08;
       
@@ -51,13 +53,14 @@ const MouseFollower = () => {
       requestAnimationFrame(animateFollower);
     };
     
+    // Add event listeners
     window.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseover', onMouseOver);
     document.addEventListener('mouseout', onMouseOut);
     
     requestAnimationFrame(animateFollower);
     
-    // Setup follower initial styles
+    // Setup initial styles
     follower.style.cssText = `
       position: fixed;
       width: 20px;
@@ -72,6 +75,7 @@ const MouseFollower = () => {
       opacity: 0.6;
     `;
     
+    // Cleanup
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseover', onMouseOver);
