@@ -562,7 +562,7 @@ de las aplicaciones internas.</li>
                 <div>
                   <h4>Redes Sociales</h4>
                   <div className="social-links">
-                    <a href="https://www.linkedin.com/in/andres-hurtado-hurtado-molina-1a7801349/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/andres-hurtado-molina-1a7801349/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     <a href="https://github.com/hurtadx" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://codepen.io/hurtadx" target="_blank" rel="noopener noreferrer">Codepen</a>
                   </div>
@@ -687,7 +687,7 @@ de las aplicaciones internas.</li>
               <a href="https://github.com/hurtadx" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <i className="social-icon github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/andres-hurtado-hurtado-molina-1a7801349/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/andres-hurtado-molina-1a7801349/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i className="social-icon linkedin"></i>
               </a>
               <a href="https://codepen.io/hurtadx" target="_blank" rel="noopener noreferrer" aria-label="CodePen">

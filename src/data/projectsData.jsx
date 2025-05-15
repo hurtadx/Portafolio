@@ -447,7 +447,7 @@ function MainPortfolio() {
                 <div>
                   <h4>Redes Sociales</h4>
                   <div className="social-links">
-                    <a href="https://www.linkedin.com/in/andres-hurtado-hurtado-molina-1a7801349/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/andres-hurtado-molina-1a7801349/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     <a href="https://github.com/hurtadx" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://codepen.io/hurtadx" target="_blank" rel="noopener noreferrer">Codepen</a>
                   </div>
@@ -487,7 +487,7 @@ function MainPortfolio() {
         </div>
       </section>
 
-      {/* Footer */}
+    
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-logo">AH</div>
