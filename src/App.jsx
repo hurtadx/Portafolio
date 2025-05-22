@@ -5,11 +5,10 @@ import emailjs from '@emailjs/browser';
 
 import ProjectCard from './components/ProjectCard'
 import ParticleBackground from './components/ParticleBackground'
-import MouseFollower from './components/MouseFollower'
 import ParallaxBg from './components/ParallaxBg'
 import { projects, skillsData } from './data/projectsData'
 import './App.css'
-import profileImage from './assets/IMG/uy.jpg';
+import profileImage from './assets/IMG/uy.webp';
 
 const ScrollIndicator = ({ sections, activeSection, onClickIndicator }) => (
   <div className="scroll-indicator-container">
@@ -218,7 +217,6 @@ function MainPortfolio() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <MouseFollower />
       
       <header className={`navbar ${showNavbar ? '' : 'hidden'}`}>
         <div className="navbar-container">
@@ -332,6 +330,7 @@ function MainPortfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
+            style={{ textAlign: 'center' }}
           >
             Desarrollador enfocado en crear soluciones web eficientes, con experiencia en 
             frontend y creciente especialización en tecnologías backend como Go y Node.js, 
@@ -390,17 +389,6 @@ function MainPortfolio() {
           </motion.div>
         </div>
 
-        <motion.div 
-          className="scroll-down-indicator"
-          onClick={() => scrollToSection('projects')}
-          aria-label="Desplázate hacia abajo"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          Descubre más
-        </motion.div>
-        
         <div className="decoration-element left"></div>
         <div className="decoration-element right"></div>
       </motion.section>
