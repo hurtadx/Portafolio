@@ -1,9 +1,9 @@
-import lavacaImg from '../assets/IMG/lavaca.png';
-import arcoImg from '../assets/IMG/ARCO.png';
-import sypImg from '../assets/IMG/SYP.jpg';
-import deudAppImg from '../assets/IMG/deudapp.jpg';
-import gonzaloBurgerImg from '../assets/IMG/tareacomida.jpg';
-import tareaCrudImg from '../assets/IMG/tareacrud.jpg';
+import lavacaImg from '../assets/IMG/lavaca.webp';
+import arcoImg from '../assets/IMG/ARCO.webp';
+import sypImg from '../assets/IMG/SYP.webp';
+import deudAppImg from '../assets/IMG/deudapp.webp';
+import gonzaloBurgerImg from '../assets/IMG/tareacomida.webp';
+import tareaCrudImg from '../assets/IMG/tareacrud.webp';
 
 export const projects = [
   {
